@@ -17,6 +17,12 @@ static_resources:
                       domains:
                         - '*'
                       routes:
+                        - match: { prefix: '/apibatman' }
+                          route:
+                            cluster: apibatman
+                        - match: { prefix: '/bigfootyoda' }
+                          route:
+                            cluster: bigfootyoda
                         - match: { 'prefix': '/' }
                           route:
                             cluster: allbackend_cluster
@@ -41,6 +47,42 @@ static_resources:
                     socket_address:
                       address: 127.0.0.1
                       port_value: 2222
+              - endpoint:
+                  address:
+                    socket_address:
+                      address: 127.0.0.1
+                      port_value: 3333
+              - endpoint:
+                  address:
+                    socket_address:
+                      address: 127.0.0.1
+                      port_value: 4444
+    - name: apibatman
+      connect_timeout: 1s
+      type: strict_dns
+      lb_policy: round_robin
+      load_assignment:
+        cluster_name: apibatman
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      address: 127.0.0.1
+                      port_value: 1111
+              - endpoint:
+                  address:
+                    socket_address:
+                      address: 127.0.0.1
+                      port_value: 2222
+    - name: bigfootyoda
+      connect_timeout: 1s
+      type: strict_dns
+      lb_policy: round_robin
+      load_assignment:
+        cluster_name: bigfootyoda
+        endpoints:
+          - lb_endpoints:
               - endpoint:
                   address:
                     socket_address:
