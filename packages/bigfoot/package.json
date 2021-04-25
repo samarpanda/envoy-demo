@@ -1,0 +1,30 @@
+{
+  "name": "@envoy/bigfoot",
+  "version": "1.0.0",
+  "description": "API gateway",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "echo 'Not required for API package!'"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "8.2.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.19",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.4"
+  },
+  "keywords": [],
+  "author": "er.samarpanda@gmail.com",
+  "license": "ISC"
+}
